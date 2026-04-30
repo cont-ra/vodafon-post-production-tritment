@@ -830,7 +830,13 @@ ul, ol { list-style: none; }
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
   cursor: pointer;
-  transition: padding 0.3s ease;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out), padding 0.3s ease;
+}
+.checklist li.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 .checklist li:hover { padding-left: 8px; }
 .checklist li:first-child { border-top: 1px solid var(--line); }
@@ -840,7 +846,7 @@ ul, ol { list-style: none; }
   border-radius: 4px;
   display: grid;
   place-items: center;
-  transition: all 0.25s ease;
+  transition: border-color 0.5s var(--ease-out), background 0.5s var(--ease-out);
   flex-shrink: 0;
 }
 .checklist li:hover .check-box {
@@ -851,8 +857,8 @@ ul, ol { list-style: none; }
   width: 14px; height: 14px;
   color: white;
   opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.2s ease;
+  transform: scale(0.4);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
 }
 .checklist li:hover .check-box svg {
   opacity: 1;
@@ -1774,23 +1780,32 @@ ul, ol { list-style: none; }
   update();
 })();
 
-// ============ CHECKLIST FILL ON SCROLL ============
-// Each item ticks individually when its top crosses 60% of viewport from top.
-// Speed naturally follows scroll speed — slow scroll = slow ticks.
+// ============ CHECKLIST: smooth reveal + paced tick ============
+// Stage 1: each <li> fades in (translateY) when it enters viewport.
+// Stage 2: checkboxes tick on a shared clock — first tick 600ms after the
+// FIRST item reveals, then one every 900ms. Fast scroll means later ticks
+// happen after the user has scrolled past — by design.
 (function() {
   const items = document.querySelectorAll('.checklist li');
   if (!items.length) return;
+  let firstAt = null;
+  const TICK_DELAY_BASE = 600;
+  const TICK_INTERVAL = 900;
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-checked');
+        entry.target.classList.add('is-revealed');
+        if (firstAt === null) firstAt = performance.now();
+        const idx = Array.from(items).indexOf(entry.target);
+        const tickAt = TICK_DELAY_BASE + idx * TICK_INTERVAL;
+        const delay = Math.max(120, tickAt - (performance.now() - firstAt));
+        setTimeout(() => {
+          entry.target.classList.add('is-checked');
+        }, delay);
         obs.unobserve(entry.target);
       }
     });
-  }, {
-    rootMargin: '0px 0px -40% 0px',
-    threshold: 0
-  });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
   items.forEach(el => obs.observe(el));
 })();
 </script>
