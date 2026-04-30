@@ -321,49 +321,23 @@ ul, ol { list-style: none; }
 }
 
 /* Vyshyvanka pixel decoration */
-.hero__credit {
-  margin-top: 36px;
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 18px;
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 100px;
-  background: rgba(0,0,0,0.18);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  width: fit-content;
-}
-.hero__credit-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-}
-.hero__credit-mark {
+.hero__brand-mark {
+  position: absolute;
+  left: clamp(-24px, -2vw, 0px);
+  bottom: clamp(-32px, -3vw, -16px);
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 18px;
-  letter-spacing: -0.02em;
-  color: var(--vf-white);
+  font-size: clamp(140px, 22vw, 360px);
+  line-height: 0.78;
+  letter-spacing: -0.06em;
+  color: rgba(255,255,255,0.09);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1;
 }
-.hero__credit-line {
-  width: 1px;
-  height: 16px;
-  background: rgba(255,255,255,0.3);
-}
-.hero__credit-meta {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-}
-@media (max-width: 600px) {
-  .hero__credit { padding: 8px 14px; gap: 10px; }
-  .hero__credit-meta { display: none; }
-  .hero__credit-line { display: none; }
+@media (max-width: 700px) {
+  .hero__brand-mark { font-size: clamp(90px, 30vw, 180px); }
 }
 
 .hero__vyshyvanka {
@@ -1357,13 +1331,9 @@ ul, ol { list-style: none; }
       </p>
     </div>
 
-    <div class="hero__credit">
-      <span class="hero__credit-label">Тритмент від</span>
-      <span class="hero__credit-mark">_contora</span>
-      <span class="hero__credit-line"></span>
-      <span class="hero__credit-meta">post-production studio</span>
-    </div>
   </div>
+
+  <span class="hero__brand-mark" aria-hidden="true">_contora</span>
 
   <div class="hero__bottom">
     <div class="scroll-cue">
