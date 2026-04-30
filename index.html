@@ -1775,18 +1775,22 @@ ul, ol { list-style: none; }
 })();
 
 // ============ CHECKLIST FILL ON SCROLL ============
+// Each item ticks individually when its top crosses 60% of viewport from top.
+// Speed naturally follows scroll speed — slow scroll = slow ticks.
 (function() {
   const items = document.querySelectorAll('.checklist li');
   if (!items.length) return;
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const idx = Array.from(items).indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('is-checked'), idx * 90);
+        entry.target.classList.add('is-checked');
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.45 });
+  }, {
+    rootMargin: '0px 0px -40% 0px',
+    threshold: 0
+  });
   items.forEach(el => obs.observe(el));
 })();
 </script>
