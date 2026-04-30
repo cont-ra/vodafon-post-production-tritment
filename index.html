@@ -1042,23 +1042,30 @@ ul, ol { list-style: none; }
   margin: 0 auto;
 }
 .foot__top {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255,255,255,0.12);
-}
-@media (min-width: 900px) {
-  .foot__top { grid-template-columns: 1.4fr 1fr; }
-}
-.foot__contacts {
-  text-align: right;
-  justify-self: end;
 }
 .foot__brand {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 24px;
+}
+@media (min-width: 900px) {
+  .foot__brand {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 56px;
+  }
+}
+.foot__tagline {
+  color: rgba(255,255,255,0.55);
+  max-width: 36ch;
+  line-height: 1.55;
+  font-size: 13px;
+}
+@media (min-width: 900px) {
+  .foot__tagline { text-align: right; }
 }
 .foot__logo {
   font-family: var(--font-display);
@@ -1702,18 +1709,9 @@ ul, ol { list-style: none; }
           ми <span class="accent">зможемо.</span>
         </h3>
         <span class="foot__logo"><span class="foot__logo__u">_</span>contora</span>
-        <p style="color:rgba(255,255,255,0.55); max-width:38ch; line-height:1.55; font-size:13px;">
+        <p class="foot__tagline">
           Тритмент пост-продакшену для рекламної кампанії Vodafone Ukraine · 2026.
         </p>
-      </div>
-      <div class="foot__col foot__contacts">
-        <h5>Контакти</h5>
-        <ul>
-          <li><a href="https://t.me/moon_carrots" target="_blank" rel="noopener">Telegram · @moon_carrots</a></li>
-          <li><a href="https://www.instagram.com/_contora/" target="_blank" rel="noopener">Instagram · @_contora</a></li>
-          <li><a href="tel:+380731256">+380 73 1256</a></li>
-          <li><a href="mailto:moont_carrots@contora.net">moont_carrots@contora.net</a></li>
-        </ul>
       </div>
     </div>
     <div class="foot__bottom">
