@@ -1789,8 +1789,8 @@ ul, ol { list-style: none; }
   const items = document.querySelectorAll('.checklist li');
   if (!items.length) return;
   let firstAt = null;
-  const TICK_DELAY_BASE = 600;
-  const TICK_INTERVAL = 900;
+  const TICK_DELAY_BASE = 250;
+  const TICK_INTERVAL = 400;
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
