@@ -6,7 +6,23 @@
 <title>Vodafone — Пост-продакшен тритмент</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================
+   e-Ukraine (Diya) — official Ukrainian gov typeface
+   Source: dmavisit/e-ukraine-fonts via jsDelivr CDN
+   =========================================== */
+@font-face { font-family: 'e-Ukraine'; src: url('https://cdn.jsdelivr.net/gh/dmavisit/e-ukraine-fonts@main/e-Ukraine-Light.woff') format('woff'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'e-Ukraine'; src: url('https://cdn.jsdelivr.net/gh/dmavisit/e-ukraine-fonts@main/e-Ukraine-Regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'e-Ukraine'; src: url('https://cdn.jsdelivr.net/gh/dmavisit/e-ukraine-fonts@main/e-Ukraine-Medium.woff') format('woff'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'e-Ukraine'; src: url('https://cdn.jsdelivr.net/gh/dmavisit/e-ukraine-fonts@main/e-Ukraine-Bold.woff') format('woff'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'e-Ukraine Head'; src: url('https://cdn.jsdelivr.net/gh/dmavisit/e-ukraine-fonts@main/e-UkraineHead-Light.woff') format('woff'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'e-Ukraine Head'; src: url('https://cdn.jsdelivr.net/gh/dmavisit/e-ukraine-fonts@main/e-UkraineHead-Regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'e-Ukraine Head'; src: url('https://cdn.jsdelivr.net/gh/dmavisit/e-ukraine-fonts@main/e-UkraineHead-Medium.woff') format('woff'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'e-Ukraine Head'; src: url('https://cdn.jsdelivr.net/gh/dmavisit/e-ukraine-fonts@main/e-UkraineHead-Bold.woff') format('woff'); font-weight: 700; font-style: normal; font-display: swap; }
+</style>
 
 <style>
 /* ===========================================
@@ -38,10 +54,10 @@
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.16);
 
-  /* Typography — switchable */
-  --font-display: 'Unbounded', system-ui, sans-serif;
-  --font-body: 'Manrope', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Typography — e-Ukraine (Diya) typeface */
+  --font-display: 'e-Ukraine Head', system-ui, sans-serif;
+  --font-body: 'e-Ukraine', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'e-Ukraine', monospace;
 
   /* Density — switchable */
   --section-py: clamp(80px, 12vw, 180px);
