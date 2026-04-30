@@ -845,6 +845,14 @@ ul, ol { list-style: none; }
   opacity: 1;
   transform: scale(1);
 }
+.checklist li.is-checked .check-box {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.checklist li.is-checked .check-box svg {
+  opacity: 1;
+  transform: scale(1);
+}
 .checklist__label {
   font-size: 15.5px;
   font-weight: 500;
@@ -970,12 +978,20 @@ ul, ol { list-style: none; }
   border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 @media (min-width: 900px) {
-  .foot__top { grid-template-columns: 2fr 1fr 1fr; }
+  .foot__top { grid-template-columns: 1fr 1fr; }
 }
 .foot__brand {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 18px;
+}
+.foot__logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--vf-white);
 }
 .foot__title {
   font-family: var(--font-display);
@@ -998,6 +1014,12 @@ ul, ol { list-style: none; }
   padding: 6px 0;
   font-size: 14px;
   color: rgba(255,255,255,0.7);
+}
+.foot__col ul li a {
+  transition: color 0.2s ease;
+}
+.foot__col ul li a:hover {
+  color: var(--accent);
 }
 .foot__bottom {
   padding-top: 32px;
@@ -1236,80 +1258,16 @@ ul, ol { list-style: none; }
     <div class="hero__sub">
       <p>
         Концепція пост-продакшену для рекламної кампанії Vodafone Ukraine.
-        Композ, моушен у фірмовій ідентиці, контроль на майданчику та повна
+        Композ, моушен у фірмовій айдентиці, контроль на майданчику та повна
         адаптація під формати — від мобільного 9:16 до фасадного LED ТРЦ Гулівер.
-      </p>
-      <p>
-        Шість напрямків роботи. Одна команда. Один результат —
-        <strong style="color:white;">«Разом ми зможемо»</strong>.
       </p>
     </div>
   </div>
 
   <div class="hero__bottom">
-    <div class="hero__stat">
-      <span class="num">06</span>
-      <span class="label">Напрямків роботи</span>
-    </div>
-    <div class="hero__stat">
-      <span class="num">03</span>
-      <span class="label">Формати екранів</span>
-    </div>
-    <div class="hero__stat">
-      <span class="num">05</span>
-      <span class="label">Учасників команди</span>
-    </div>
     <div class="scroll-cue">
       <span>Прокрутіть нижче</span>
       <span class="arrow"></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ APPROACH / 3 PILLARS ============ -->
-<section class="section approach">
-  <div class="section__inner">
-    <div class="section__head">
-      <div>
-        <div class="section__index reveal">[ 01 / Підхід ]</div>
-        <h2 class="section__title reveal">
-          Менше пости.<br/>
-          <span class="accent">Більше планування.</span>
-        </h2>
-      </div>
-      <p class="section__intro reveal">
-        Наш підхід — превентивний. Що краще ми контролюємо процес на майданчику,
-        то менше витрат у пості. Це економить час, бюджет та зберігає якість
-        матеріалу для подальшої роботи.
-      </p>
-    </div>
-
-    <div class="approach__grid">
-      <div class="pillar reveal">
-        <span class="pillar__num">/ 01</span>
-        <h3 class="pillar__title">Бренд-консистентність</h3>
-        <p class="pillar__text">
-          Кожен елемент — типографіка, рух, колір — у точній відповідності
-          до айдентики Vodafone. Червоний #E60000 як основа, пікселізована
-          вишиванка як акцент.
-        </p>
-      </div>
-      <div class="pillar reveal">
-        <span class="pillar__num">/ 02</span>
-        <h3 class="pillar__title">Превенція на сеті</h3>
-        <p class="pillar__text">
-          Он-сет супервізія, контроль освітлення, маркерів та тестових плейтів.
-          Все, що можна виправити одразу, виправляється на майданчику.
-        </p>
-      </div>
-      <div class="pillar reveal">
-        <span class="pillar__num">/ 03</span>
-        <h3 class="pillar__title">Multi-format ready</h3>
-        <p class="pillar__text">
-          Майстер під 16:9, ресайзи під 9:16, окрема компоновка під super-wide
-          для LED ТРЦ Гулівер. Один матеріал — десятки точок дотику.
-        </p>
-      </div>
     </div>
   </div>
 </section>
@@ -1327,8 +1285,6 @@ ul, ol { list-style: none; }
       </div>
       <p class="section__intro reveal">
         Кожен напрямок — окрема дисципліна з власним workflow та контролем якості.
-        У плейсхолдерах нижче — місця для GIF-демонстрацій, які ви додасте
-        окремо для кожної теми.
       </p>
     </div>
 
@@ -1340,7 +1296,7 @@ ul, ol { list-style: none; }
         <div class="dir__body">
           <h3 class="dir__title">2D-анімація та інфографіка</h3>
           <p class="dir__desc">
-            Розробка демо-анімацій у фірмовій ідентиці Vodafone. Інтерфейси,
+            Розробка демо-анімацій у фірмовій айдентиці Vodafone. Інтерфейси,
             UI-картки, інфографічні елементи, motion-логотип. Все, що
             заповнюватиме зелені екрани смартфона та проектора.
           </p>
@@ -1536,94 +1492,6 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ============ ADAPTATIONS ============ -->
-<section class="section adapt" id="adaptations">
-  <div class="section__inner">
-    <div class="section__head">
-      <div>
-        <div class="section__index reveal">[ 03 / Формати ]</div>
-        <h2 class="section__title reveal">
-          Один матеріал —<br/>
-          <span class="accent">три формати екранів</span>
-        </h2>
-      </div>
-      <p class="section__intro reveal">
-        Знімаємо в найвищому майстер-форматі, з пост-продакшеном перекомповуємо
-        під кожен носій окремо. Без обрізок «по краях».
-      </p>
-    </div>
-
-    <div class="adapt__grid">
-
-      <div class="fmt fmt--main reveal">
-        <div class="fmt__head">
-          <span class="fmt__name">Super-wide · ТРЦ Гулівер</span>
-          <span class="fmt__ratio">~32:9 LED</span>
-        </div>
-        <div class="fmt__frame fmt__frame--wide">
-          <div class="fmt__content">
-            <span class="vf-mark-mini">
-              <svg viewBox="0 0 32 32" fill="none">
-                <path d="M16 4 C9.4 4 4 9.4 4 16 C4 22.6 9.4 28 16 28 C22.6 28 28 22.6 28 16 C28 13.6 27.3 11.3 26 9.4 L24.2 11 C25.1 12.5 25.6 14.2 25.6 16 C25.6 21.3 21.3 25.6 16 25.6 C14.6 25.6 13.3 25.3 12.1 24.7 C12.6 24 13 23.1 13 22 C13 20 14 17 17 17 C19 17 20.5 18.5 20.5 18.5 L20.5 11 C20.5 7 17.5 4 16 4 Z" fill="white"/>
-              </svg>
-            </span>
-            <div class="label">Vodafone × Gulliver LED</div>
-          </div>
-        </div>
-        <p class="fmt__notes">
-          <strong>Окрема композиція.</strong> Не stretching, не letterbox.
-          Перекомпоновка кадру під ультра-широкий формат. Ключові елементи —
-          по центру, текст — у читабельній зоні. Враховуємо дистанцію перегляду
-          (15–40 м).
-        </p>
-      </div>
-
-      <div class="fmt fmt--top reveal">
-        <div class="fmt__head">
-          <span class="fmt__name">Горизонталь</span>
-          <span class="fmt__ratio">16:9</span>
-        </div>
-        <div class="fmt__frame fmt__frame--16x9">
-          <div class="fmt__content">
-            <span class="vf-mark-mini">
-              <svg viewBox="0 0 32 32" fill="none">
-                <path d="M16 4 C9.4 4 4 9.4 4 16 C4 22.6 9.4 28 16 28 C22.6 28 28 22.6 28 16 C28 13.6 27.3 11.3 26 9.4 L24.2 11 C25.1 12.5 25.6 14.2 25.6 16 C25.6 21.3 21.3 25.6 16 25.6 C14.6 25.6 13.3 25.3 12.1 24.7 C12.6 24 13 23.1 13 22 C13 20 14 17 17 17 C19 17 20.5 18.5 20.5 18.5 L20.5 11 C20.5 7 17.5 4 16 4 Z" fill="white"/>
-              </svg>
-            </span>
-            <div class="label">TV · YouTube</div>
-          </div>
-        </div>
-        <p class="fmt__notes">
-          <strong>Master-формат.</strong> TV-ефір, YouTube, web-pre-roll,
-          OOH-screens у горизонталі.
-        </p>
-      </div>
-
-      <div class="fmt fmt--bottom reveal">
-        <div class="fmt__head">
-          <span class="fmt__name">Вертикаль</span>
-          <span class="fmt__ratio">9:16</span>
-        </div>
-        <div class="fmt__frame fmt__frame--9x16">
-          <div class="fmt__content">
-            <span class="vf-mark-mini">
-              <svg viewBox="0 0 32 32" fill="none">
-                <path d="M16 4 C9.4 4 4 9.4 4 16 C4 22.6 9.4 28 16 28 C22.6 28 28 22.6 28 16 C28 13.6 27.3 11.3 26 9.4 L24.2 11 C25.1 12.5 25.6 14.2 25.6 16 C25.6 21.3 21.3 25.6 16 25.6 C14.6 25.6 13.3 25.3 12.1 24.7 C12.6 24 13 23.1 13 22 C13 20 14 17 17 17 C19 17 20.5 18.5 20.5 18.5 L20.5 11 C20.5 7 17.5 4 16 4 Z" fill="white"/>
-              </svg>
-            </span>
-            <div class="label">Stories<br/>Reels<br/>TikTok</div>
-          </div>
-        </div>
-        <p class="fmt__notes">
-          <strong>Mobile-first.</strong> Перекомпоновка під вертикаль, інша
-          ритміка титрів.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============ SUPERVISING / CHECKLIST ============ -->
 <section class="section sup" id="supervising">
   <div class="section__inner">
@@ -1645,7 +1513,7 @@ ul, ol { list-style: none; }
     <div class="sup__layout">
       <div class="sup__intro reveal">
         <p>
-          Робота супервізора починається не з постпродакшену, а з рідідаунів.
+          Робота супервізора починається не з постпродакшену, а з пре-продакшну.
           Ми вивчаємо сценарій, шот-лист, локації, реквізит — і складаємо
           ризик-карту майбутнього композу.
         </p>
@@ -1725,13 +1593,6 @@ ul, ol { list-style: none; }
           <span class="checklist__label">Превʼю-композ на майданчику (швидкий тест)</span>
           <span class="checklist__meta">On-set comp</span>
         </li>
-        <li>
-          <span class="check-box">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <span class="checklist__label">Брендова консистентність (червоний, лого)</span>
-          <span class="checklist__meta">Brand</span>
-        </li>
       </ul>
     </div>
   </div>
@@ -1750,7 +1611,7 @@ ul, ol { list-style: none; }
       </div>
       <p class="section__intro reveal">
         Кожен — спеціаліст у своєму напрямку. Разом — повний цикл
-        пост-продакшену від рідідауну до фінального ділівері.
+        пост-продакшену від пре-продакшну до фінального ділівері.
       </p>
     </div>
 
@@ -1825,120 +1686,28 @@ ul, ol { list-style: none; }
   <div class="foot__inner">
     <div class="foot__top">
       <div class="foot__brand">
-        <h3 class="foot__title">
-          Разом<br/>
-          ми <span class="accent">зможемо.</span>
-        </h3>
-        <p style="color:rgba(255,255,255,0.6); max-width:42ch; line-height:1.55;">
-          Тритмент пост-продакшену для рекламної кампанії
-          Vodafone Ukraine. Складено в Україні · 2026.
+        <span class="foot__logo">_contora</span>
+        <p style="color:rgba(255,255,255,0.55); max-width:38ch; line-height:1.55; font-size:13px;">
+          Тритмент пост-продакшену для рекламної кампанії Vodafone Ukraine · 2026.
         </p>
       </div>
       <div class="foot__col">
-        <h5>Документ</h5>
+        <h5>Контакти</h5>
         <ul>
-          <li>v.1.0</li>
-          <li>Підготовлено · 2026</li>
-          <li>Українська мова</li>
-          <li>Confidential</li>
-        </ul>
-      </div>
-      <div class="foot__col">
-        <h5>Структура</h5>
-        <ul>
-          <li><a href="#directions">→ 6 напрямків</a></li>
-          <li><a href="#adaptations">→ Формати</a></li>
-          <li><a href="#supervising">→ Супервізія</a></li>
-          <li><a href="#team">→ Команда</a></li>
+          <li><a href="https://t.me/moon_carrots" target="_blank" rel="noopener">Telegram · @moon_carrots</a></li>
+          <li><a href="https://www.instagram.com/_contora/" target="_blank" rel="noopener">Instagram · @_contora</a></li>
+          <li><a href="tel:+380731256">+380 73 1256</a></li>
+          <li><a href="mailto:moont_carrots@contora.net">moont_carrots@contora.net</a></li>
         </ul>
       </div>
     </div>
     <div class="foot__bottom">
       <span>© Vodafone × Post-Production Treatment · 2026</span>
-      <span>Made in Ukraine 🇺🇦</span>
     </div>
   </div>
 </footer>
 
-<!-- ============ TWEAKS PANEL ============ -->
-<aside class="tweaks tweaks--collapsed" id="tweaks">
-  <button class="tweaks__toggle" id="tweaks-toggle" aria-label="Відкрити налаштування">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="tweaks-icon">
-      <path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </button>
-  <div class="tweaks__body">
-    <div class="tweaks__title">Tweaks</div>
-    <h4 class="tweaks__heading">Налаштування</h4>
-
-    <div class="tweaks__group">
-      <span class="tweaks__label">Палітра</span>
-      <div class="tweaks__palette">
-        <button class="tweaks__swatch tweaks__swatch--red tweaks__swatch--active"
-                data-tweak="palette" data-value="red"><span>Red</span></button>
-        <button class="tweaks__swatch tweaks__swatch--inverse"
-                data-tweak="palette" data-value="inverse"><span>Light</span></button>
-        <button class="tweaks__swatch tweaks__swatch--mono"
-                data-tweak="palette" data-value="mono"><span>Mono</span></button>
-      </div>
-    </div>
-
-    <div class="tweaks__group">
-      <span class="tweaks__label">Щільність</span>
-      <div class="tweaks__options">
-        <button class="tweaks__opt" data-tweak="density" data-value="compact">Compact</button>
-        <button class="tweaks__opt tweaks__opt--active" data-tweak="density" data-value="normal">Normal</button>
-        <button class="tweaks__opt" data-tweak="density" data-value="spacious">Spacious</button>
-      </div>
-    </div>
-
-    <div class="tweaks__group">
-      <span class="tweaks__label">Гарнітура</span>
-      <div class="tweaks__options">
-        <button class="tweaks__opt tweaks__opt--active" data-tweak="font" data-value="bold">Bold</button>
-        <button class="tweaks__opt" data-tweak="font" data-value="editorial">Edit.</button>
-        <button class="tweaks__opt" data-tweak="font" data-value="mono">Mono</button>
-      </div>
-    </div>
-  </div>
-</aside>
-
 <script>
-// ============ TWEAKS PANEL ============
-(function() {
-  const tweaks = document.getElementById('tweaks');
-  const toggle = document.getElementById('tweaks-toggle');
-  const icon = document.getElementById('tweaks-icon');
-
-  toggle.addEventListener('click', () => {
-    const isOpen = tweaks.classList.contains('tweaks--open');
-    if (isOpen) {
-      tweaks.classList.remove('tweaks--open');
-      tweaks.classList.add('tweaks--collapsed');
-      icon.innerHTML = '<path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
-    } else {
-      tweaks.classList.remove('tweaks--collapsed');
-      tweaks.classList.add('tweaks--open');
-      icon.innerHTML = '<path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>';
-    }
-  });
-
-  // All tweak buttons
-  document.querySelectorAll('[data-tweak]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tweak = btn.dataset.tweak;
-      const value = btn.dataset.value;
-      document.body.dataset[tweak] = value;
-      // Toggle active state within group
-      document.querySelectorAll(`[data-tweak="${tweak}"]`).forEach(b => {
-        b.classList.remove('tweaks__opt--active');
-        b.classList.remove('tweaks__swatch--active');
-      });
-      btn.classList.add(btn.classList.contains('tweaks__swatch') ? 'tweaks__swatch--active' : 'tweaks__opt--active');
-    });
-  });
-})();
-
 // ============ SCROLL REVEAL ============
 (function() {
   const observer = new IntersectionObserver((entries) => {
@@ -1984,14 +1753,21 @@ ul, ol { list-style: none; }
   update();
 })();
 
-// ============ KEYBOARD SHORTCUT (T to open tweaks) ============
-document.addEventListener('keydown', (e) => {
-  if (e.key === 't' || e.key === 'т' || e.key === 'е') {
-    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-      document.getElementById('tweaks-toggle').click();
-    }
-  }
-});
+// ============ CHECKLIST FILL ON SCROLL ============
+(function() {
+  const items = document.querySelectorAll('.checklist li');
+  if (!items.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(items).indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('is-checked'), idx * 90);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.45 });
+  items.forEach(el => obs.observe(el));
+})();
 </script>
 
 </body>
